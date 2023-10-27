@@ -5,6 +5,9 @@ import com.example.alumnos.Repositories.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class AlumnoService {
 
@@ -19,11 +22,11 @@ public class AlumnoService {
         return alumnoRepository.save(alumno);
     }
 
-    public Object obtenerAlumnos() {
-        return alumnoRepository.findAll();
+    public List<AlumnoEntity> obtenerAlumnos() {
+        return (List<AlumnoEntity>) alumnoRepository.findAll();
     }
 
-    public Object obtenerAlumno(Long id) {
+    public Optional<AlumnoEntity> obtenerAlumno(Long id) {
         return alumnoRepository.findById(id);
     }
 }

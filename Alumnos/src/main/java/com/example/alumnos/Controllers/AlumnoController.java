@@ -24,16 +24,16 @@ public class AlumnoController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String, Object>> agregarAlumno(@RequestBody AlumnoEntity alumno){
-        Map<String, Object> response = new HashMap<>();
-        if (alumno != null){
-            response.put("alumno", alumnoService.agregarAlumno(alumno));
-            response.put("status", true);
-            return ResponseEntity.ok(response);
+        public ResponseEntity<Map<String, Object>> agregarAlumno(@RequestBody AlumnoEntity alumno){
+            Map<String, Object> response = new HashMap<>();
+            if (alumno != null){
+                response.put("alumno", alumnoService.agregarAlumno(alumno));
+                response.put("status", true);
+                return ResponseEntity.ok(response);
+            }
+            response.put("status", false);
+            return ResponseEntity.badRequest().body(response);
         }
-        response.put("status", false);
-        return ResponseEntity.badRequest().body(response);
-    }
 
     @GetMapping
     public ResponseEntity<Map<String, Object>> obtenerAlumnos(){
