@@ -26,6 +26,4 @@ public class AlumnoEntity {
     private boolean cuotasGeneradas;
     private int tipoPago; //0 - Sin definir // 1 - contado // 2 - cuotas
     private int cantidadCuotas;
-
-
 }

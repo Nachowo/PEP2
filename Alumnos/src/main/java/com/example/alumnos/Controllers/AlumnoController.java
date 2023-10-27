@@ -25,6 +25,7 @@ public class AlumnoController {
 
     @PostMapping
         public ResponseEntity<Map<String, Object>> agregarAlumno(@RequestBody AlumnoEntity alumno){
+        System.out.println("se ingreso a agregar alumno con el siguiente alumno: " + alumno.toString());
             Map<String, Object> response = new HashMap<>();
             if (alumno != null){
                 response.put("alumno", alumnoService.agregarAlumno(alumno));
