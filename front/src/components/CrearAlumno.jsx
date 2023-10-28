@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import alumnoService from '../services/alumnoService';
-//import BookService from '../services/BookService';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
-class crearAlumno extends Component {
+
+class CrearAlumno extends Component {
     constructor(props) {
         super(props)
 
@@ -15,7 +19,9 @@ class crearAlumno extends Component {
             nombreColegio: '',
             anoEgreso: '',
             tipoPago: '',
-            cantidadCuotas: ''
+            cantidadCuotas: '',
+            cuota: true,
+            maxCuotas: 0
         }
         this.rutHandler = this.rutHandler.bind(this);
     this.nombreHandler = this.nombreHandler.bind(this);
@@ -63,8 +69,16 @@ class crearAlumno extends Component {
         this.setState({nacimiento: event.target.value});
     }
     tColegioHandler= (event) => {
+        if(event.target.value === "3"){
+        this.maxCuotas = 10;
+        }else if(event.target.value === "2"){
+        this.maxCuotas = 4;
+        }else{
+        this.maxCuotas = 7;
+        }
         this.setState({tipoColegio: event.target.value});
     }
+    
     nColegioHandler= (event) => {
         this.setState({nombreColegio: event.target.value});
     }
@@ -72,11 +86,21 @@ class crearAlumno extends Component {
         this.setState({anoEgreso: event.target.value});
     }
     tPagoHandler= (event) => {
+        if(event.target.value === "2"){
+            this.setState({cuota: false});
+        }else{
+            this.setState({cuota: true});
+        }
         this.setState({tipoPago: event.target.value});
     }
-    cCuotasHandler= (event) => {
-        this.setState({cantidadCuotas: event.target.value});
-    }
+    cCuotasHandler = (event) => {
+      const cant = event.target.value;
+      const cant2 = cant > this.maxCuotas ? this.maxCuotas : cant;
+      //no funciona el limitar el maximo de cuotas
+      this.setState({ cantidadCuotas: cant2 });
+    };
+    
+
 
     cancel(){
         this.props.history.push('/books');
@@ -91,12 +115,22 @@ class crearAlumno extends Component {
       <div className="card col-md-6 offset-md-3 offset-md-3">
         <h3 className="text-center">Add Student</h3>
         <div className="card-body">
-          <form>
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
             {/*Campo para ingresar el rut */}
             <div className="form-group">
-              <label> Rut: </label>
-              <input placeholder="Rut" name="rut" className="form-control" 
-                value={this.state.rut} onChange={this.rutHandler}/>
+                <TextField
+                  required
+                  id="rut"
+                  label="Rut"
+                  value={this.state.rut} onChange={this.rutHandler}
+                />
             </div>
 
             {/*Campo para ingresar el nombre */}
@@ -121,7 +155,6 @@ class crearAlumno extends Component {
             </div>
 
             {/*Campo para ingresar el tipo de colegio */}
-            {/* Ver que valores uso en el backend */}
             <div className="form-group">
               <label> Tipo de colegio: </label>
               <select placeholder="Seleccione el tipo de colegio" name="tipoColegio" className="form-control" 
@@ -157,15 +190,16 @@ class crearAlumno extends Component {
             </div>
 
             {/*Campo para ingresar la cantidad de cuotas */}
-            <div className="form-group">
+            {!this.state.cuota && <div className="form-group">
               <label> Cantidad de cuotas: </label>
-              <input placeholder="Ingresar cantidad de cuotas" name="cantidadCuotas" className="form-control" 
-                value={this.state.cantidadCuotas} onChange={this.cCuotasHandler}/>
-            </div>
+              <input type='number' placeholder="Ingresar cantidad de cuotas" name="cantidadCuotas" className="form-control" 
+                value={this.state.cantidadCuotas} onChange={this.cCuotasHandler} disabled={this.state.cuota}/>
+            </div>}
 
-            <button className="btn btn-success" onClick={this.saveAlumno}>Save</button>
+            <Button variant="contained" onClick={this.saveAlumno} endIcon={<SendIcon />}>Guardar</Button>
             <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
-          </form>
+            
+          </Box>
         </div>
       </div>
     </div>
@@ -175,4 +209,4 @@ class crearAlumno extends Component {
     }
 }
 
-export default crearAlumno
+export default CrearAlumno

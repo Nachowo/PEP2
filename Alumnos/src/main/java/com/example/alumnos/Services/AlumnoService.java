@@ -4,6 +4,7 @@ import com.example.alumnos.Entities.AlumnoEntity;
 import com.example.alumnos.Repositories.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,8 @@ import java.util.Optional;
 @Service
 public class AlumnoService {
 
+    @Autowired
+    private RestTemplate restTemplate;
     private final AlumnoRepository alumnoRepository;
 
     @Autowired
@@ -19,7 +22,14 @@ public class AlumnoService {
     }
 
     public AlumnoEntity agregarAlumno(AlumnoEntity alumno) {
-        return alumnoRepository.save(alumno);
+
+        alumno = alumnoRepository.save(alumno);
+        crearCuotas(alumno);
+        return alumno;
+    }
+
+    private void crearCuotas(AlumnoEntity alumno) {
+        restTemplate.postForObject("http://Cuotas/cuota/crearCuotas", alumno, void.class);
     }
 
     public List<AlumnoEntity> obtenerAlumnos() {

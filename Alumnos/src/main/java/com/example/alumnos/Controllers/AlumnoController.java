@@ -23,6 +23,8 @@ public class AlumnoController {
         this.alumnoService = alumnoService;
     }
 
+
+
     @PostMapping
         public ResponseEntity<Map<String, Object>> agregarAlumno(@RequestBody AlumnoEntity alumno){
         System.out.println("se ingreso a agregar alumno con el siguiente alumno: " + alumno.toString());
