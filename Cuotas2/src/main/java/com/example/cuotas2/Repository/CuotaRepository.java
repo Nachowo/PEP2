@@ -1,6 +1,6 @@
-package com.example.cuotas.Repository;
+package com.example.cuotas2.Repository;
 
-import com.example.cuotas.Entity.CuotaEntity;
+import com.example.cuotas2.Entity.CuotaEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

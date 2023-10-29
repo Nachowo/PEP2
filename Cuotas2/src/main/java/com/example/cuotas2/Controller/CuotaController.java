@@ -1,8 +1,8 @@
-package com.example.cuotas.Controller;
+package com.example.cuotas2.Controller;
 
-import com.example.cuotas.Entity.CuotaEntity;
-import com.example.cuotas.Models.Alumno;
-import com.example.cuotas.Service.CuotaService;
+import com.example.cuotas2.Entity.CuotaEntity;
+import com.example.cuotas2.Models.Alumno;
+import com.example.cuotas2.Service.CuotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

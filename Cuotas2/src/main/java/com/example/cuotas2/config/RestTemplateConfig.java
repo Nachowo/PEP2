@@ -1,4 +1,4 @@
-package com.example.cuotas.config;
+package com.example.cuotas2.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;

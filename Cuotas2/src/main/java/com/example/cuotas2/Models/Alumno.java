@@ -1,6 +1,5 @@
-package com.example.cuotas.Models;
+package com.example.cuotas2.Models;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

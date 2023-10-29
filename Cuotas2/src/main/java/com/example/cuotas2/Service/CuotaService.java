@@ -1,8 +1,8 @@
-package com.example.cuotas.Service;
+package com.example.cuotas2.Service;
 
-import com.example.cuotas.Entity.CuotaEntity;
-import com.example.cuotas.Models.Alumno;
-import com.example.cuotas.Repository.CuotaRepository;
+import com.example.cuotas2.Entity.CuotaEntity;
+import com.example.cuotas2.Models.Alumno;
+import com.example.cuotas2.Repository.CuotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

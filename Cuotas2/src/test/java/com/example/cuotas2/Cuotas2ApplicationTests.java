@@ -1,13 +1,13 @@
-package com.example.cuotas;
+package com.example.cuotas2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CuotasApplicationTests {
+class Cuotas2ApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

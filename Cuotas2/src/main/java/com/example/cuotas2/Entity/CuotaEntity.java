@@ -1,4 +1,4 @@
-package com.example.cuotas.Entity;
+package com.example.cuotas2.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
