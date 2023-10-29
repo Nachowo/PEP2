@@ -1,16 +1,16 @@
 spring:
   devtools:
     restart:
-      aditional-paths: src/main/java/com/example/demo
+      aditional-paths: src/main/java
   application:
     name: alumno-service
   cloud:
     config:
       enabled: true
-      uri: http://localhost:8091
+      uri: http://localhost:8081
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/alumnos
+    url: jdbc:postgresql://localhost:5432/AlumnosDB?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
     username: postgres
     password: 64959
   jpa:
