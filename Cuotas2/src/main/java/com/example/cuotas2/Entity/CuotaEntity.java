@@ -1,15 +1,16 @@
 package com.example.cuotas2.Entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+
 @Entity
-@Table(name = "cuotas")
 @Data
+@Table(name = "cuotas")
 @NoArgsConstructor
 @AllArgsConstructor
 public class CuotaEntity {

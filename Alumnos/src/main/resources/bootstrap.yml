@@ -1,7 +1,4 @@
 spring:
-  devtools:
-    restart:
-      aditional-paths: src/main/java
   application:
     name: alumno-service
   cloud:
@@ -9,12 +6,9 @@ spring:
       enabled: true
       uri: http://localhost:8081
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/AlumnosDB?autorReconnect=true&allowPublicKeyRetrieval=true&useSSL=false
+    url: jdbc:postgresql://localhost:5432/AlumnosDB
     username: postgres
     password: 64959
   jpa:
-    show-sql: true
     hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: update
