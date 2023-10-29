@@ -1,4 +1,4 @@
 FROM openjdk:17
-ARG JAR_FILE=target/AlumnosMicroService.jar
-COPY ${JAR_FILE} AlumnosMicroService.jar
-ENTRYPOINT ["java","-jar","/AlumnosMicroService.jar"]
+ARG JAR_FILE=target/alumno-service.jar
+COPY ${JAR_FILE} alumno-service.jar
+ENTRYPOINT ["java","-jar","/alumno-service.jar"]

@@ -29,7 +29,7 @@ public class AlumnoService {
     }
 
     private void crearCuotas(AlumnoEntity alumno) {
-        restTemplate.postForObject("http://Cuotas/cuota/crearCuotas", alumno, void.class);
+        restTemplate.postForObject("http://cuota-service/cuota/crearCuotas", alumno, void.class);
     }
 
     public List<AlumnoEntity> obtenerAlumnos() {

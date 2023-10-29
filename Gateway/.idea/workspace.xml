@@ -4,11 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0980d90e-6d06-4bf2-bb1d-e330bf3ff9d5" name="Changes" comment="" />
+    <list default="true" id="0980d90e-6d06-4bf2-bb1d-e330bf3ff9d5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Alumnos/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../Alumnos/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Services/AlumnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Services/AlumnoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConfigService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConfigService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EurekaService/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../EurekaService/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EurekaService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EurekaService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-data/alumno-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/alumno-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-data/cuota-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/cuota-service.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dockerfile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -33,6 +50,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -62,6 +83,9 @@
       <option name="presentableId" value="Default" />
       <updated>1698544098674</updated>
       <workItem from="1698544099742" duration="389000" />
+      <workItem from="1698553584939" duration="1345000" />
+      <workItem from="1698556553372" duration="24000" />
+      <workItem from="1698558730214" duration="618000" />
     </task>
     <servers />
   </component>
