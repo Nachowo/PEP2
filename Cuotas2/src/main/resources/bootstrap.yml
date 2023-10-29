@@ -1,7 +1,4 @@
 spring:
-  devtools:
-    restart:
-      aditional-paths: src/main/java
   application:
     name: cuota-service
   cloud:
@@ -14,7 +11,5 @@ spring:
     username: postgres
     password: 64959
   jpa:
-    show-sql: true
     hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: update
