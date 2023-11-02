@@ -18,8 +18,9 @@ const alumnoService = axios.create({
 alumnoService.interceptors.response.use(undefined, errorHandler);
 class AlumnoService {
 
-    getAlumnos(){
-        return alumnoService.get('/').then(res => res.data.alumnos);
+    async getAlumnos(){
+        const res = await alumnoService.get('/');
+        return res.data.alumnos;
     }
 
     crearAlumno(alumno){

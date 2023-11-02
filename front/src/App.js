@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
 import CrearAlumno from './components/CrearAlumno';
 import ListarAlumnos from './components/ListarAlumnos';
 import Princial from './components/Principal';
+import VerCuotas from './components/VerCuotas';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                           <Route path="/" element={<Princial />} />
                           <Route path="/crear-alumno" element={<CrearAlumno />} />
                           <Route path="/listar-alumnos" element={<ListarAlumnos />} />
+                          <Route path="/ver-cuotas/:id" element={<VerCuotas />} />
                     </Routes>
                 </div>
         </Router>

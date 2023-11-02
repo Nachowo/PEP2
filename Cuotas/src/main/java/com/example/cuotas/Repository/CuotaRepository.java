@@ -1,12 +1,9 @@
-package com.example.cuotas2.Repository;
+package com.example.cuotas.Repository;
 
-import com.example.cuotas2.Entity.CuotaEntity;
+import com.example.cuotas.Entity.CuotaEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
 public interface CuotaRepository extends CrudRepository<CuotaEntity,Long> {
-    List<CuotaEntity> findByAlumno(Long id);
 }

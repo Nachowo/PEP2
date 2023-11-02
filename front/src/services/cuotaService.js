@@ -1,0 +1,30 @@
+import axios from 'axios';
+
+const CUOTA_API_URL = "http://localhost:8092/cuota";
+
+const errorHandler = (error) => {
+    if(error.request){
+        console.log("Error request");
+    }else if(error.response){
+        console.log("Error en");
+    } 
+    return Promise.reject(error);
+}
+
+const cuotaService = axios.create({
+    baseURL: CUOTA_API_URL,
+});
+
+cuotaService.interceptors.response.use(undefined, errorHandler);
+class CuotaService {
+    async getCuotasByAlumno(id){
+        const res = await cuotaService.get('/alumno/'+id);
+        console.log(res);
+        return res.data;
+    }
+
+    async 
+
+}
+
+export default new CuotaService()

@@ -5,9 +5,6 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 
 
 const HeaderComponent = () => {
-  const navigate = useNavigate();
-
-  
 
   return (
     <div>
