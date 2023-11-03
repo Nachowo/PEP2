@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: notas-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notasdb
+    username: postgres
+    password: 64959
+  jpa:
+    hibernate:
+      ddl-auto: update
