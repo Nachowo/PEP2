@@ -71,4 +71,10 @@ public class CuotaController {
         response.put("cuotas",cuotaService.obtenerCuotasAlumno(id));
         return ResponseEntity.ok(response);
     }
+
+    @PutMapping("/pagarCuota/{id}")
+    public ResponseEntity<Map<String,Object>> pagarCuota(@PathVariable Long id){
+        cuotaService.pagarCuota(id);
+        return ResponseEntity.ok().build();
+    }
 }

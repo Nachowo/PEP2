@@ -23,7 +23,10 @@ class CuotaService {
         return res.data;
     }
 
-    async 
+    async pagarCuota(id){
+        const res = await cuotaService.put('/pagarCuota/'+id);
+        return res.data;
+    }
 
 }
 

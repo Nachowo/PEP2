@@ -8,16 +8,24 @@ class VerCuotas extends Component{
 
     this.state = {
         cuotas: [],
-        error: null
+        error: null,
+        alumno: null
     }
     
     this.pagar = this.pagar.bind(this);
     }
 
     pagar(id){
-        //logica de pagar
+        console.log(id);
+        cuotaService.pagarCuota(id).then((res) => {
+            window.location.reload();
+        }).catch((e) => {
+            console.log(e);
+            
+        });
     }
     getCuotas(id) {
+        this.state.cuotas = [];
         cuotaService
           .getCuotasByAlumno(id)
           .then((res) => {
@@ -32,13 +40,15 @@ class VerCuotas extends Component{
           if(!this.state.error===null){
             alert(this.state.error);
       }
-      console.log(this.state.cuotas);
     }
 
 
       componentDidMount() {
         // Obtener el id de la URL utilizando React Router
         const id = Number(window.location.pathname.split('/').pop());
+        console.log(id);
+        this.setState({ alumno: id });
+        console.log(this.state.alumno);
         // Llamar a la función para obtener las cuotas
         this.getCuotas(id);
       }
@@ -73,7 +83,7 @@ class VerCuotas extends Component{
                                 <td>{cuota.fechaPago}</td>
                                 <td>{cuota.monto}</td>
                                 <td>
-                                    <Button variant='contained' color='primary' onClick={this.pagar}  className="btn btn-info">Ver</Button>
+                                    <Button variant='contained' color='primary' onClick={() => this.pagar(cuota.id)  }  className="btn btn-info">Ver</Button>
                                 </td>
                             </tr>
                         )

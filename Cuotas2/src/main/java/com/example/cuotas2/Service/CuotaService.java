@@ -80,4 +80,14 @@ public class CuotaService {
     public List<CuotaEntity> obtenerCuotasAlumno(Long id) {
         return cuotaRepository.findByAlumno(id);
     }
+
+    public void pagarCuota(Long id) {
+        Optional<CuotaEntity> cuotaEntity = cuotaRepository.findById(id);
+        if (cuotaEntity.isPresent()){
+            CuotaEntity cuotaUpdate = cuotaEntity.get();
+            cuotaUpdate.setStatus("pagada");
+            cuotaUpdate.setFechaPago(LocalDate.now());
+            cuotaRepository.save(cuotaUpdate);
+        }
+    }
 }
