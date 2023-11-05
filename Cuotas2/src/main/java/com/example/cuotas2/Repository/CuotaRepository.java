@@ -9,4 +9,7 @@ import java.util.List;
 @Repository
 public interface CuotaRepository extends CrudRepository<CuotaEntity,Long> {
     List<CuotaEntity> findByAlumno(Long id);
+    List<CuotaEntity> findCuotaEntitiesByAlumnoOrderByNumeroCuota(Long id);
+
+    List<CuotaEntity> findCuotaEntitiesByAlumno(Long id);
 }

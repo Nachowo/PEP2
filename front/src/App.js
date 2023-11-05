@@ -6,6 +6,7 @@ import CrearAlumno from './components/CrearAlumno';
 import ListarAlumnos from './components/ListarAlumnos';
 import Princial from './components/Principal';
 import VerCuotas from './components/VerCuotas';
+import VerReporte from './components/VerReporte';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
                           <Route path="/crear-alumno" element={<CrearAlumno />} />
                           <Route path="/listar-alumnos" element={<ListarAlumnos />} />
                           <Route path="/ver-cuotas/:id" element={<VerCuotas />} />
+                          <Route path="/ver-rerporte" element={<VerReporte />} />
                     </Routes>
                 </div>
         </Router>

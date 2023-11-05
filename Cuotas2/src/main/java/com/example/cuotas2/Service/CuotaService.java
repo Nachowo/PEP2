@@ -2,6 +2,7 @@ package com.example.cuotas2.Service;
 
 import com.example.cuotas2.Entity.CuotaEntity;
 import com.example.cuotas2.Models.Alumno;
+import com.example.cuotas2.Models.Nota;
 import com.example.cuotas2.Repository.CuotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,8 +49,8 @@ public class CuotaService {
     public void crearCuotas(Alumno alumno) {
         for (int i = 0; i < alumno.getCantidadCuotas(); i++) {
             CuotaEntity cuota = new CuotaEntity();
-            cuota.setMonto(1500000);
-            cuota.setFechaVencimiento(LocalDate.now().plusMonths(i));
+            cuota.setMonto((double) 1500000 /alumno.getCantidadCuotas());
+            cuota.setFechaVencimiento(LocalDate.now().plusMonths(i+1));
             cuota.setAlumno(alumno.getId());
             cuota.setStatus("pendiente");
             cuota.setNumeroCuota(i+1);
@@ -78,7 +79,17 @@ public class CuotaService {
     }
 
     public List<CuotaEntity> obtenerCuotasAlumno(Long id) {
-        return cuotaRepository.findByAlumno(id);
+        List<CuotaEntity> cuotas = cuotaRepository.findCuotaEntitiesByAlumno(id);
+        /*
+        for(CuotaEntity cuota : cuotas){
+            if(cuota.getFechaVencimiento().isBefore(LocalDate.now()) && cuota.getStatus().equals("pendiente")){
+                cuota.setStatus("vencida");
+            }
+            if (cuota.getStatus().equals("pendiente")){
+                aplicarDescuento(cuota);
+            }
+        }}*/
+        return cuotas;
     }
 
     public void pagarCuota(Long id) {
@@ -89,5 +100,37 @@ public class CuotaService {
             cuotaUpdate.setFechaPago(LocalDate.now());
             cuotaRepository.save(cuotaUpdate);
         }
+    }
+
+    public void actualizarNotas(List<Nota> notas){
+        for (Nota nota : notas) {
+            List<CuotaEntity> cuotas = cuotaRepository.findByAlumno(nota.getId());
+            for (CuotaEntity cuota : cuotas) {
+                LocalDate fechaVencimientoCuota = cuota.getFechaVencimiento();
+                LocalDate fechaNota = nota.getFecha();
+                if (fechaVencimientoCuota.isBefore(fechaNota) && !fechaVencimientoCuota.isBefore(LocalDate.now())) {
+                    cuota.setCantidadNotas(cuota.getCantidadNotas() + 1);
+                    cuota.setPtjeTotal(cuota.getPtjeTotal() + nota.getPuntaje());
+                    cuotaRepository.save(cuota);
+                }
+            }
+        }
+    }
+
+    public void aplicarDescuento(CuotaEntity cuota){
+        double descuento = cuota.getDescuento();
+        double monto = cuota.getMonto();
+        int cantidadNotas = cuota.getCantidadNotas();
+        int ptjeTotal = cuota.getPtjeTotal();
+        double promedio = (double) ptjeTotal / cantidadNotas;
+        if(1000>=promedio && promedio>=950){
+            descuento += 10;
+        } else if (promedio<949 && promedio>=900){
+            descuento += 5;
+        }else if (promedio<899 && promedio>=850){
+            descuento += 2;
+        }
+        double montoNuevo = monto - (monto * (descuento/100));
+        cuota.setMonto(Math.round(montoNuevo));
     }
 }

@@ -1,4 +1,4 @@
-package com.example.notasservice.Entity;
+package com.example.alumnos.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,22 +7,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
+
 @Data
-@Table(name = "notas")
 @NoArgsConstructor
 @AllArgsConstructor
-public class NotaEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true,nullable = false)
+public class Nota {
     private Long id;
-    private int alumno;
+    private int rut;
     private int puntaje;
     private LocalDate fecha;
 
-    public NotaEntity(int alumno, int puntaje, LocalDate fecha) {
-        this.alumno = alumno;
+    public Nota(int rut, int puntaje, LocalDate fecha) {
+        this.rut = rut;
         this.puntaje = puntaje;
         this.fecha = fecha;
     }

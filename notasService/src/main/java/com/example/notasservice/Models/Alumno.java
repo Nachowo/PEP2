@@ -1,4 +1,4 @@
-package com.example.alumnos.Entities;
+package com.example.notasservice.Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,16 +7,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
 @Data
-@Table(name = "alumnos")
 @NoArgsConstructor
 @AllArgsConstructor
-public class AlumnoEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true,nullable = false)
-    private Long id;
+public class Alumno {
+
+    private int id;
     private String rut;
     private String nombre1;
     private String apellido;
@@ -27,14 +23,4 @@ public class AlumnoEntity {
     private boolean cuotasGeneradas;
     private int tipoPago; //0 - Sin definir // 1 - contado // 2 - cuotas
     private int cantidadCuotas;
-
-    public String tipoPagoStr() {
-        if (tipoPago == 1) {
-            return "Contado";
-        } else if (tipoPago == 2) {
-            return "Cuotas";
-        } else {
-            return "Sin definir";
-        }
-    }
 }

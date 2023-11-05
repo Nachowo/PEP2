@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ALUMNO_API_URL = "http://localhost:8091/alumno";
+const ALUMNO_API_URL = "http://localhost:8080/alumno";
 
 const errorHandler = (error) => {
     if(error.request){
@@ -30,6 +30,12 @@ class AlumnoService {
     getAlumnoById(id){
         return alumnoService.get( '/'+id);
     }
+
+    async getReporte(){
+        const res = await alumnoService.get('/reporte');
+        return res.data;
+    }
 }
+
 
 export default new AlumnoService()

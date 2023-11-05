@@ -1,29 +1,43 @@
 package com.example.notasservice.Controller;
 
+import com.example.notasservice.Entity.NotaEntity;
 import com.example.notasservice.Service.NotaService;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+import java.util.List;
+
+@RestController
+@RequestMapping("/nota")
+@CrossOrigin(origins = "http://localhost:3000/")
+
 public class NotaController {
 
     @Autowired
     private NotaService notaService;
 
     @PostMapping("/subir")
-    public String subirCSV(@RequestParam MultipartFile file){
-        notaService.leerCSV(file);
-        return "Principal";
+    public ResponseEntity<String> subirCSV(@RequestParam MultipartFile file){
+        try{
+
+            List<NotaEntity> notas = notaService.leerCSV(file);
+            System.out.println(notas);
+            notaService.aplicarDescuentos(notas);
+            return ResponseEntity.ok("Archivo subido correctamente");
+        }catch (Exception e){
+            System.out.println(e);
+            return ResponseEntity.badRequest().body("No se pudo subir el archivo");
+        }
     }
 
     @GetMapping("/alumno/{id}")
-    public String obtenerNotasAlumno(@RequestParam int id){
-        notaService.obtenerNotasAlumno(id);
-        return "Principal";
+    public List<NotaEntity> obtenerNotasAlumno(@PathVariable int id){
+        return notaService.obtenerNotasAlumno(id);
+
     }
 
 

@@ -1,6 +1,8 @@
 package com.example.alumnos.Controllers;
 
+
 import com.example.alumnos.Entities.AlumnoEntity;
+import com.example.alumnos.Models.Reporte;
 import com.example.alumnos.Services.AlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @RestController
 @RequestMapping("/alumno")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class AlumnoController {
 
     private final AlumnoService alumnoService;
@@ -52,6 +55,18 @@ public class AlumnoController {
         response.put("alumno", alumnoService.obtenerAlumno(id));
         response.put("status", true);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/rut/{rut}")
+    public ResponseEntity<AlumnoEntity> obtenerAlumnoPorRut(@PathVariable String rut){
+        AlumnoEntity alumno = alumnoService.obtenerAlumnoPorRut(rut);
+        return ResponseEntity.ok(alumno);
+    }
+
+    @GetMapping("/reporte")
+    public ResponseEntity<List<Reporte>> obtenerReporte(){
+        List<Reporte> reportes = alumnoService.obtenerReporte();
+        return ResponseEntity.ok(reportes);
     }
 
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CUOTA_API_URL = "http://localhost:8092/cuota";
+const CUOTA_API_URL = "http://localhost:8080/cuota";
 
 const errorHandler = (error) => {
     if(error.request){
@@ -20,7 +20,7 @@ class CuotaService {
     async getCuotasByAlumno(id){
         const res = await cuotaService.get('/alumno/'+id);
         console.log(res);
-        return res.data;
+        return res;
     }
 
     async pagarCuota(id){

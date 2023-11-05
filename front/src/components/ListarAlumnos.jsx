@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import alumnoService from '../services/alumnoService';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import alumnoService from '../services/alumnoService';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 function ListarAlumnos() {
   const [alumnos, setAlumnos] = useState([]);
@@ -9,7 +16,6 @@ function ListarAlumnos() {
   const navigate = useNavigate();
 
   const verAlumno = (id) => {
-    
     navigate(`/ver-cuotas/${id}`);
   };
 
@@ -26,65 +32,67 @@ function ListarAlumnos() {
         console.log(e);
         setError('Error al obtener los alumnos.');
         setAlumnos([]);
+        alert(error);
       });
-    if (error !== null) {
-      alert(error);
-    }
   };
 
   useEffect(() => {
     getAlumnos();
   }, []);
-//useEffect(() => {
-//  getAlumnos();
-//}, []);
+
   return (
     <div>
       <h2>Listar Alumnos</h2>
-      <br></br>
-      <div className="row">
-        <table className="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th>Rut</th>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>Nacimiento</th>
-              <th>Tipo Colegio</th>
-              <th>Nombre Colegio</th>
-              <th>Año Egreso</th>
-              <th>Tipo Pago</th>
-              <th>Cantidad Cuotas</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {alumnos.map((alumno) => (
-              <tr key={alumno.id}>
-                <td>{alumno.rut}</td>
-                <td>{alumno.nombre1}</td>
-                <td>{alumno.apellido}</td>
-                <td>{alumno.nacimiento}</td>
-                <td>{alumno.tipoColegio}</td>
-                <td>{alumno.nombreColegio}</td>
-                <td>{alumno.anoEgreso}</td>
-                <td>{alumno.tipoPago}</td>
-                <td>{alumno.cantidadCuotas}</td>
-                <td>
+      <br />
+      <TableContainer component={Paper}>
+      <style>{`
+       
+       h2 {
+         margin-bottom: 20px;
+         text-align: center;
+       }
+       
+     `}</style>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Rut</TableCell>
+              <TableCell>Nombre</TableCell>
+              <TableCell>Apellido</TableCell>
+              <TableCell>Nacimiento</TableCell>
+              <TableCell>Tipo Colegio</TableCell>
+              <TableCell>Nombre Colegio</TableCell>
+              <TableCell>Año Egreso</TableCell>
+              <TableCell>Tipo Pago</TableCell>
+              <TableCell>Cantidad Cuotas</TableCell>
+              <TableCell>Acciones</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {alumnos.map((alumno,index) => (
+              <TableRow key={alumno.id} style={{ backgroundColor: index % 2 === 0 ? '#2196f3' : '#1769aa' }}>                <TableCell>{alumno.rut}</TableCell>
+                <TableCell>{alumno.nombre1}</TableCell>
+                <TableCell>{alumno.apellido}</TableCell>
+                <TableCell>{alumno.nacimiento}</TableCell>
+                <TableCell>{alumno.tipoColegio}</TableCell>
+                <TableCell>{alumno.nombreColegio}</TableCell>
+                <TableCell>{alumno.anoEgreso}</TableCell>
+                <TableCell>{alumno.tipoPago}</TableCell>
+                <TableCell>{alumno.cantidadCuotas}</TableCell>
+                <TableCell>
                   <Button
                     variant='contained'
                     color='primary'
                     onClick={() => verAlumno(alumno.id)}
-                    className="btn btn-info"
                   >
-                    Ver
+                    Ver Cuotas
                   </Button>
-                </td>
-              </tr>
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }

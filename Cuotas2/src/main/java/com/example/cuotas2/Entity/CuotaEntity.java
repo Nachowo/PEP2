@@ -25,4 +25,6 @@ public class CuotaEntity {
     private Long alumno;
     private double monto;
     private LocalDate fechaPago;
+    private int cantidadNotas;
+    private int ptjeTotal;
 }

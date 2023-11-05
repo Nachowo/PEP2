@@ -5,32 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0980d90e-6d06-4bf2-bb1d-e330bf3ff9d5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/src/main/java/com/example/configserver2/ConfigServer2Application.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConfigServer2/src/test/java/com/example/configserver2/ConfigServer2ApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/Controller/CuotaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/CuotasApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/Entity/CuotaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/Models/Alumno.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/Repository/CuotaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/Service/CuotaService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/java/com/example/cuotas/config/RestTemplateConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/main/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cuotas/src/test/java/com/example/cuotas/CuotasApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Controllers/AlumnoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Controllers/AlumnoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Repositories/AlumnoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Repositories/AlumnoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Services/AlumnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Alumnos/src/main/java/com/example/alumnos/Services/AlumnoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Controller/CuotaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Controller/CuotaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Entity/CuotaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Entity/CuotaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Repository/CuotaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Repository/CuotaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Service/CuotaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Cuotas2/src/main/java/com/example/cuotas2/Service/CuotaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/components/Principal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/components/Principal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/services/alumnoService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/services/alumnoService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/src/services/cuotaService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/src/services/cuotaService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Controller/NotaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Controller/NotaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Entity/NotaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Entity/NotaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/NotasServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/NotasServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Repository/NotaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Repository/NotaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Service/NotaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/java/com/example/notasservice/Service/NotaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../notasService/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../notasService/src/main/resources/bootstrap.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +99,7 @@
       <workItem from="1698900305096" duration="120000" />
       <workItem from="1698960128230" duration="791000" />
       <workItem from="1698975728224" duration="1205000" />
+      <workItem from="1699058726742" duration="2584000" />
     </task>
     <servers />
   </component>

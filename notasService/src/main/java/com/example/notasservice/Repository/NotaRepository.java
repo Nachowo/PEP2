@@ -8,7 +8,6 @@ import java.util.List;
 
 @Repository
 public interface NotaRepository extends CrudRepository<NotaEntity,Long> {
-    List<NotaEntity> findAllByRut(int id);
-
+    List<NotaEntity> findAllByAlumno(int id);
 
 }

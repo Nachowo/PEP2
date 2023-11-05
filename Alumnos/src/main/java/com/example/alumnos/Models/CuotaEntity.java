@@ -19,4 +19,18 @@ public class CuotaEntity {
     private Long alumno;
     private double monto;
     private LocalDate fechaPago;
+
+
+    public double getMontoPagado() {
+        if(this.status.equals("pagado")){
+            return this.monto;
+        }
+        return 0;
+    }
+    public double getMontoPendiente() {
+        if(!this.status.equals("pagado")){
+            return this.monto;
+        }
+        return 0;
+    }
 }
