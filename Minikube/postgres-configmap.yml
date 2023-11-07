@@ -5,8 +5,8 @@ metadata:
   labels:
     app: postgres-configmap
 data:
-  POSTGRES_DS_HOST: postgres-service
-  POSTGRES_DB_ESTUDIANTES: estudiantes
+  POSTGRES_DS_HOST: postgres
+  POSTGRES_DB_ESTUDIANTES: alumnos
   POSTGRES_DB_CUOTAS: cuotas
   POSTGRES_DB_NOTAS: notas
   POSTGRES_USER: postgres
