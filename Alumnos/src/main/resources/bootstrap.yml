@@ -23,7 +23,7 @@ spring:
   datasource:
     platform: postgres
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${POSTGRES_DS_HOST:localhost}:5432/${POSTGRES_DB_ESTUDIANTES}?useSSL=false
+    url: jdbc:postgresql://${POSTGRES_DS_HOST}:5432/${POSTGRES_DB_ESTUDIANTES}?useSSL=false
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
     hikari:
