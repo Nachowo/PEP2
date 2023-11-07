@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-configmap
+  labels:
+    app: postgres-configmap
+data:
+  POSTGRES_DS_HOST: postgres-service
+  POSTGRES_DB_ESTUDIANTES: estudiantes
+  POSTGRES_DB_CUOTAS: cuotas
+  POSTGRES_DB_NOTAS: notas
+  POSTGRES_USER: postgres

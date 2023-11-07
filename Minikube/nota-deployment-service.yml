@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notas-deployment
+  labels:
+    app: notas-deployment
+spec:
+  selector:
+    matchLabels:
+      app: notas-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: notas-deployment
+    spec:
+      containers:
+        - name: notas-service
+          image: nachowo/notas-service:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service:8081
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://eureka-service:8761
+            - name: eureka.instance.preferIpAddress
+              value: "true"
+            - name: POSTGRES_DS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_DS_HOST 
+            - name: POSTGRES_DB_NOTAS
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_DB_NOTAS
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-configmap
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notas-service
+  labels:
+    app: notas-service
+spec:
+  selector:
+    app: notas-deployment
+  ports:
+    - protocol: TCP
+      port: 8093
+      targetPort: 8093
+  type: LoadBalancer

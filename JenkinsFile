@@ -1,0 +1,103 @@
+def buildAndPushDockerImage(String ruta, String service) {
+    dir(ruta) {
+        sh "docker build -t nachowo/${service.toLowerCase()}-service ."
+        
+        withCredentials([string(credentialsId: 'dckrhubpassword', variable: 'dckpass')]) {
+            sh "docker login -u nachowo -p ${dckpass}"
+        }
+        
+        sh "docker push nachowo/${service.toLowerCase()}-service"
+    }
+}
+
+pipeline{
+    agent any
+    tools{
+        maven "maven"
+    }
+    stages{
+        stage("Build Config-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("ConfigService"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker config"){
+            steps{
+                buildAndPushDockerImage("ConfigService","config")
+            }
+        }
+        stage("Build Eureka-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("EurekaService"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker eureka"){
+            steps{
+                buildAndPushDockerImage("EurekaService","eureka")
+            }
+        }
+        stage("Build Alumnos-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("Alumnos"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker alumnos"){
+            steps{
+                buildAndPushDockerImage("Alumnos","alumnos")
+            }
+        }
+        stage("Build cuotas-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("Cuotas2"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker cuotas"){
+            steps{
+                buildAndPushDockerImage("Cuotas2","cuotas")
+            }
+        }
+        stage("Build Notas-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("notasService"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker Notas"){
+            steps{
+                buildAndPushDockerImage("notasService","notas")
+            }
+        }
+        stage("Build Gateway-Service"){
+            steps{
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Jenkins', url: 'https://github.com/Nachowo/PEP2']])
+                dir("Gateway"){
+                    sh "mvn clean install -DskipTests=True"
+                }
+            }
+        }
+        stage("Build y push Docker gateway"){
+            steps{
+                buildAndPushDockerImage("Gateway","gateway")
+            }
+        }
+        stage("Build y push Frontend"){
+            steps{
+                buildAndPushDockerImage("front","front")
+            }
+        }
+    }
+}
