@@ -24,11 +24,11 @@ spring:
             allowed-headers: "*"
             allow-credentials: true
       routes:
-        - id: alumno
+        - id: alumno-service
           uri: lb://alumno-service
           predicates:
             - Path=/alumno/**
-        - id: cuota
+        - id: cuota-service
           uri: lb://cuota-service
           predicates:
             - Path=/cuota/**
