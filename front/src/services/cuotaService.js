@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CUOTA_API_URL = "http://localhost:8080/cuota";
+const CUOTA_API_URL = "http://cuotas-service:8080/cuota";
 
 const errorHandler = (error) => {
     if(error.request){

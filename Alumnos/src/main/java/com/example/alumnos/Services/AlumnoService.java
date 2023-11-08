@@ -5,8 +5,6 @@ import com.example.alumnos.Models.CuotaEntity;
 import com.example.alumnos.Models.Nota;
 import com.example.alumnos.Models.Reporte;
 import com.example.alumnos.Repositories.AlumnoRepository;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ALUMNO_API_URL = "http://localhost:8080/alumno";
+const ALUMNO_API_URL = "http://gateway-service/alumno";
 
 const errorHandler = (error) => {
     if(error.request){
