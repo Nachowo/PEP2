@@ -3,11 +3,11 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+      defaultZone: http://eureka-service:8761/eureka
 spring:
   application:
     name: gateway-service
   cloud:
     config:
       enabled: true
-      uri: ${SPRING_CLOUD_CONFIG_URI}
+      uri: http://localost:8081
