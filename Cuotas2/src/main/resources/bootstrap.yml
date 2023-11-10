@@ -1,3 +1,4 @@
+# cuota-service-bootstrap.yml
 eureka:
   client:
     fetch-registry: true
@@ -9,7 +10,7 @@ spring:
     restart:
       additional-paths: src/main/java
   application:
-    name: cuotas-service
+    name: cuota-service  # Asegúrate de que coincida con el nombre de tu microservicio
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
@@ -21,7 +22,7 @@ spring:
       enabled: true
       uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://${POSTGRES_DS_HOST}:5432/${POSTGRES_DB_CUOTAS}?useSSL=false    
+    url: jdbc:postgresql://postgres:5432/${POSTGRES_DB_CUOTAS}?useSSL=false
     platform: postgres
     driver-class-name: org.postgresql.Driver
     username: ${POSTGRES_USER}

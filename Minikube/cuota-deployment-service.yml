@@ -1,24 +1,25 @@
+# cuota-service-deployment.yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cuotas-deployment
+  name: cuota-deployment
   labels:
-    app: cuotas-deployment
+    app: cuota-deployment
 spec:
   selector:
     matchLabels:
-      app: cuotas-deployment
+      app: cuota-deployment
   replicas: 1
   template:
     metadata:
       labels:
-        app: cuotas-deployment
+        app: cuota-deployment
     spec:
       containers:
-        - name: cuotas-service
-          image: nachowo/cuotas-service:latest
+        - name: cuota-service
+          image: nachowo/cuotas-service:latest  
           ports:
-            - containerPort: 8081
+            - containerPort: 8082  # Puedes cambiar el puerto si es necesario
           env:
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://config-service:8081
@@ -31,11 +32,11 @@ spec:
                 configMapKeyRef:
                   name: postgres-configmap
                   key: POSTGRES_DS_HOST 
-            - name: POSTGRES_DB_CUOTAS
+            - name: POSTGRES_DB_CUOTAS  # Cambiado el nombre para reflejar la base de datos de cuotas
               valueFrom:
                 configMapKeyRef:
                   name: postgres-configmap
-                  key: POSTGRES_DB_CUOTAS
+                  key: POSTGRES_DB_CUOTAS  # Cambiado el nombre para reflejar la base de datos de cuotas
             - name: POSTGRES_USER
               valueFrom:
                 configMapKeyRef:
@@ -47,17 +48,18 @@ spec:
                   name: postgres-credentials
                   key: POSTGRES_PASSWORD
 ---
+# cuota-service-service.yml
 apiVersion: v1
 kind: Service
 metadata:
-  name: cuotas-service
+  name: cuota-service
   labels:
-    app: cuotas-service
+    app: cuota-service
 spec:
   selector:
-    app: cuotas-deployment
+    app: cuota-deployment
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 8081
+      port: 8092  # Puedes cambiar el puerto si es necesario
+      targetPort: 8082  # Debe coincidir con el puerto del contenedor
   type: LoadBalancer
