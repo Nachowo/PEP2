@@ -58,6 +58,6 @@ spec:
     app: cuotas-deployment
   ports:
     - protocol: TCP
-      port: 8092
-      targetPort: 8092
+      port: 8081
+      targetPort: 8081
   type: LoadBalancer
