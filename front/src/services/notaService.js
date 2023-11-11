@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const NOTA_API_URL = "http://notas-service:8080/nota";
+const NOTA_API_URL = "http://localhost:8080/nota";
 
 const errorHandler = (error) => {
     if(error.request){

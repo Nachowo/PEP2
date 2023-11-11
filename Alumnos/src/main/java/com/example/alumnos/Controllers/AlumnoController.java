@@ -14,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/alumno")
+@CrossOrigin(origins = "http://gateway-service:8080")
 public class AlumnoController {
 
     private final AlumnoService alumnoService;
