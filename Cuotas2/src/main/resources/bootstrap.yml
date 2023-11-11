@@ -10,7 +10,7 @@ spring:
     restart:
       additional-paths: src/main/java
   application:
-    name: cuota-service  # Asegúrate de que coincida con el nombre de tu microservicio
+    name: cuota-service 
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
