@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 @RequestMapping("/cuota")
-@CrossOrigin(origins = "http://localhost:3000/")
 @RestController
 public class CuotaController {
 
