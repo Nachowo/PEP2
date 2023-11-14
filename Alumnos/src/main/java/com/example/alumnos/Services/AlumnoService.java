@@ -30,7 +30,9 @@ public class AlumnoService {
     }
 
     public AlumnoEntity agregarAlumno(AlumnoEntity alumno) {
-
+        if(alumno.getTipoPago() == 1){
+            alumno.setCantidadCuotas(1);
+        }
         alumno = alumnoRepository.save(alumno);
         crearCuotas(alumno);
         return alumno;

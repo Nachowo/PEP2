@@ -28,6 +28,8 @@ function VerReporte() {
       });
   };
 
+
+
   useEffect(() => {
     obtenerReporte();
   }, []);
@@ -37,14 +39,12 @@ function VerReporte() {
       <h2>Reporte</h2>
       <br />
       <TableContainer component={Paper}>
-      <style>{`
-       
-        h2 {
-          margin-bottom: 20px;
-          text-align: center;
-        }
-        
-      `}</style>
+        <style>{`
+          h2 {
+            margin-bottom: 20px;
+            text-align: center;
+          }
+        `}</style>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -63,20 +63,21 @@ function VerReporte() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {reportes.map((reporte,index) => (
-            <TableRow key={reporte.id} style={{ backgroundColor: index % 2 === 0 ? '#2196f3' : '#1769aa' }}>
+            {reportes.map((reporte, index) => (
+              <TableRow key={reporte.id} style={{ backgroundColor: index % 2 === 0 ? '#2196f3' : '#1769aa' }}>
                 <TableCell>{reporte.rut}</TableCell>
                 <TableCell>{reporte.nombre}</TableCell>
                 <TableCell>{reporte.cantidad_examenes}</TableCell>
                 <TableCell>{reporte.promedio_puntajes}</TableCell>
                 <TableCell>{reporte.monto_total_arancel}</TableCell>
-                <TableCell>{reporte.tipo_de_pago}</TableCell>
+                <TableCell>{(reporte.tipo_de_pago)}</TableCell>
                 <TableCell>{reporte.cantidad_cuotas}</TableCell>
                 <TableCell>{reporte.cantidad_cuotas_pagadas}</TableCell>
                 <TableCell>{reporte.total_pagado}</TableCell>
                 <TableCell>{reporte.ultimo_pago}</TableCell>
                 <TableCell>{reporte.saldo_por_pagar}</TableCell>
                 <TableCell>{reporte.cantidad_cuotas_retraso}</TableCell>
+                <TableCell>{(reporte.tipoColegio)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
